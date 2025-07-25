@@ -11,7 +11,7 @@ A joke cryptocurrency website built with Angular, featuring live price tracking,
 - **Data Persistence**: Uses localStorage to maintain consistent data between visits
 - **Responsive Design**: Works perfectly on desktop and mobile
 - **Modern UI**: Gold-themed crypto aesthetic with smooth animations
-- **SPA Routing**: Seamless navigation between intro and tracker pages
+- **Hash Routing**: GitHub Pages compatible routing with hash strategy
 
 ## 🚀 Live Demo
 
@@ -19,8 +19,8 @@ Visit the live site at: `https://pristinesource.github.io/probotcoin/`
 
 ## 📱 Pages
 
-- **Intro Page** (`/`): Landing page with features and current statistics
-- **Tracker Page** (`/tracker`): Detailed price tracking with charts and analytics
+- **Intro Page** (`/#/intro`): Landing page with features and current statistics
+- **Tracker Page** (`/#/tracker`): Detailed price tracking with charts and analytics
 
 ## 🛠️ Development
 
@@ -88,12 +88,12 @@ npm run deploy
 npm run deploy
 ```
 
-### SPA Routing Support
+### Hash Routing Support
 
-The project includes:
-- **404.html**: Redirects unknown routes back to the app
-- **.nojekyll**: Prevents Jekyll processing
-- **SPA redirect scripts**: Handles client-side routing on GitHub Pages
+The project uses Angular's HashLocationStrategy for GitHub Pages compatibility:
+- **Hash-based URLs**: All routes use `#` fragment (e.g., `/#/tracker`)
+- **No server configuration needed**: Works seamlessly on GitHub Pages
+- **Simplified deployment**: No need for 404.html or redirect scripts
 
 ## 🏗️ Project Structure
 
