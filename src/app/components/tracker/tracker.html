@@ -1,0 +1,145 @@
+<div class="tracker-container">
+  <header class="tracker-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="coin-info">
+          <img src="/probotcoin.png" alt="Gold Probot Coin" class="coin-icon">
+          <div class="coin-details">
+            <h1>Gold Probot Coin</h1>
+            <span class="ticker">GPC</span>
+          </div>
+        </div>
+
+        <div class="live-indicator">
+          <span class="live-dot"></span>
+          <span class="live-text">LIVE</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="tracker-main">
+    <div class="container">
+      <!-- Price Section -->
+      <section class="price-section">
+        <div class="price-card">
+          <div class="current-price">
+            <span class="price-value">{{ currentPrice | number:'1.2-2' }}</span>
+            <span class="price-unit">lbs of Pure Optimism</span>
+          </div>
+
+          <div class="price-changes">
+            <div class="change-item" [class.positive]="change24h >= 0" [class.negative]="change24h < 0">
+              <span class="change-label">24h Change:</span>
+              <span class="change-value">{{ change24h >= 0 ? '+' : '' }}{{ change24h | number:'1.2-2' }}%</span>
+            </div>
+
+            <div class="change-item" [class.positive]="change7d >= 0" [class.negative]="change7d < 0">
+              <span class="change-label">7d Change:</span>
+              <span class="change-value">{{ change7d >= 0 ? '+' : '' }}{{ change7d | number:'1.2-2' }}%</span>
+            </div>
+          </div>
+
+          <div class="last-updated">
+            Last updated: {{ lastUpdated | date:'medium' }}
+          </div>
+        </div>
+      </section>
+
+      <!-- Chart Section -->
+      <section class="chart-section">
+        <div class="chart-card">
+          <div class="chart-header">
+            <h2>Price History (30 Days)</h2>
+            <button class="refresh-btn" (click)="refreshData()">🔄 Refresh</button>
+          </div>
+
+          <div class="chart-container">
+            <canvas #priceChart width="800" height="400"></canvas>
+          </div>
+
+          <div class="chart-legend">
+            <div class="legend-item">
+              <div class="legend-color price-line"></div>
+              <span>Price (lbs)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Statistics Grid -->
+      <section class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">📊</div>
+          <div class="stat-content">
+            <div class="stat-label">Market Cap</div>
+            <div class="stat-value">{{ marketCap | number:'1.0-0' }} lbs</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">📈</div>
+          <div class="stat-content">
+            <div class="stat-label">24h Volume</div>
+            <div class="stat-value">{{ volume24h | number:'1.0-0' }} lbs</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">⚡</div>
+          <div class="stat-content">
+            <div class="stat-label">All-Time High</div>
+            <div class="stat-value">{{ allTimeHigh | number:'1.2-2' }} lbs</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">📉</div>
+          <div class="stat-content">
+            <div class="stat-label">All-Time Low</div>
+            <div class="stat-value">{{ allTimeLow | number:'1.2-2' }} lbs</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">🪙</div>
+          <div class="stat-content">
+            <div class="stat-label">Circulating Supply</div>
+            <div class="stat-value">1,000,000 GPC</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">🌟</div>
+          <div class="stat-content">
+            <div class="stat-label">Optimism Ratio</div>
+            <div class="stat-value">{{ optimismRatio | number:'1.1-1' }}:1</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recent Activity -->
+      <section class="activity-section">
+        <div class="activity-card">
+          <h2>Recent Price Movements</h2>
+          <div class="activity-list">
+            <div class="activity-item" *ngFor="let activity of recentActivity">
+              <div class="activity-time">{{ activity.timestamp | date:'short' }}</div>
+              <div class="activity-price">{{ activity.price | number:'1.2-2' }} lbs</div>
+              <div class="activity-change" [class.positive]="activity.change >= 0" [class.negative]="activity.change < 0">
+                {{ activity.change >= 0 ? '+' : '' }}{{ activity.change | number:'1.2-2' }}%
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Navigation -->
+      <section class="navigation-section">
+        <button class="nav-button" routerLink="/intro">
+          ← Back to Introduction
+        </button>
+      </section>
+    </div>
+  </main>
+</div>

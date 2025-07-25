@@ -1,0 +1,283 @@
+.intro-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+  color: white;
+}
+
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+}
+
+.hero-content {
+  z-index: 2;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.coin-logo {
+  margin-bottom: 2rem;
+
+  .coin-image {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
+    animation: float 3s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.main-title {
+  font-size: 4rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #b0b0b0;
+  margin-bottom: 3rem;
+  font-weight: 300;
+}
+
+.current-price-display {
+  background: rgba(255, 215, 0, 0.1);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 15px;
+  padding: 2rem;
+  margin: 2rem 0;
+  backdrop-filter: blur(10px);
+
+  .price-label {
+    display: block;
+    font-size: 1rem;
+    color: #b0b0b0;
+    margin-bottom: 0.5rem;
+  }
+
+  .price-value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffd700;
+    margin-right: 0.5rem;
+  }
+
+  .price-unit {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+  }
+
+  .price-change {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+
+    &.positive {
+      color: #4caf50;
+    }
+
+    &.negative {
+      color: #f44336;
+    }
+  }
+}
+
+.cta-button {
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  color: #1a1a2e;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  margin: 1rem;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+  }
+
+  &.secondary {
+    background: transparent;
+    color: #ffd700;
+    border: 2px solid #ffd700;
+
+    &:hover {
+      background: #ffd700;
+      color: #1a1a2e;
+    }
+  }
+}
+
+.features-section, .stats-section, .cta-section {
+  padding: 5rem 0;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #ffd700;
+    font-weight: 600;
+  }
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 215, 0, 0.5);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
+  }
+
+  .feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+  }
+
+  h3 {
+    color: #ffd700;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+  }
+
+  p {
+    color: #b0b0b0;
+    line-height: 1.6;
+  }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.stat-card {
+  background: rgba(255, 215, 0, 0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+
+  .stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffd700;
+    margin-bottom: 0.5rem;
+    display: block;
+
+    &.positive {
+      color: #4caf50;
+    }
+
+    &.negative {
+      color: #f44336;
+    }
+  }
+
+  .stat-label {
+    color: #b0b0b0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}
+
+.cta-section {
+  text-align: center;
+  background: rgba(255, 215, 0, 0.05);
+
+  p {
+    font-size: 1.2rem;
+    color: #b0b0b0;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .price-value {
+    font-size: 2rem !important;
+  }
+
+  .hero-content {
+    padding: 1rem;
+  }
+
+  .coin-logo .coin-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .features-grid, .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

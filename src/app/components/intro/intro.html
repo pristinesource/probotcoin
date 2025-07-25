@@ -1,0 +1,94 @@
+<div class="intro-container">
+  <header class="hero-section">
+    <div class="hero-content">
+      <div class="coin-logo">
+        <img src="/probotcoin.png" alt="Gold Probot Coin" class="coin-image">
+      </div>
+      <h1 class="main-title">Gold Probot Coin</h1>
+      <p class="subtitle">The Revolutionary Cryptocurrency Powered by Pure Optimism</p>
+
+      <div class="current-price-display">
+        <span class="price-label">Current Value:</span>
+        <span class="price-value">{{ currentPrice | number:'1.2-2' }} lbs</span>
+        <span class="price-unit">of Pure Optimism</span>
+        <div class="price-change" [class.positive]="change24h >= 0" [class.negative]="change24h < 0">
+          {{ change24h >= 0 ? '+' : '' }}{{ change24h | number:'1.2-2' }}% (24h)
+        </div>
+      </div>
+
+      <button class="cta-button" routerLink="/tracker">
+        View Live Tracker
+      </button>
+    </div>
+  </header>
+
+  <section class="features-section">
+    <div class="container">
+      <h2>Why Gold Probot Coin?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">✨</div>
+          <h3>Pure Optimism Backed</h3>
+          <p>Every coin is backed by genuine pounds of pure optimism, making it the most positive investment in the crypto space.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🚀</div>
+          <h3>Astronomical Growth</h3>
+          <p>Our revolutionary blockchain technology harnesses the power of positive thinking for unprecedented returns.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🏆</div>
+          <h3>Championship Grade</h3>
+          <p>Gold Probot Coin represents the champion's choice in cryptocurrency, delivering victory-level performance.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🌟</div>
+          <h3>Stellar Community</h3>
+          <p>Join thousands of optimistic investors who believe in the power of positive cryptocurrency investments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-section">
+    <div class="container">
+      <h2>Live Statistics</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">{{ currentPrice | number:'1.2-2' }}</div>
+          <div class="stat-label">Current Price (lbs)</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-value">{{ volume24h | number:'1.0-0' }}</div>
+          <div class="stat-label">24h Volume (lbs)</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-value">{{ marketCap | number:'1.0-0' }}</div>
+          <div class="stat-label">Market Cap (lbs)</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-value" [class.positive]="change7d >= 0" [class.negative]="change7d < 0">
+            {{ change7d >= 0 ? '+' : '' }}{{ change7d | number:'1.2-2' }}%
+          </div>
+          <div class="stat-label">7 Day Change</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Embrace Optimism?</h2>
+      <p>Start tracking Gold Probot Coin today and join the most positive community in cryptocurrency.</p>
+      <button class="cta-button secondary" routerLink="/tracker">
+        Launch Tracker
+      </button>
+    </div>
+  </section>
+</div>
