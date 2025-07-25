@@ -15,7 +15,7 @@ A joke cryptocurrency website built with Angular, featuring live price tracking,
 
 ## 🚀 Live Demo
 
-Visit the live site at: `https://yourusername.github.io/probotcoin/`
+Visit the live site at: `https://pristinesource.github.io/probotcoin/`
 
 ## 📱 Pages
 
@@ -33,7 +33,7 @@ Visit the live site at: `https://yourusername.github.io/probotcoin/`
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/probotcoin.git
+git clone https://github.com/pristinesource/probotcoin.git
 cd probotcoin
 
 # Install dependencies
@@ -79,7 +79,7 @@ npm run deploy
    - The workflow will automatically deploy on every push to main
 
 3. **Access your site**: 
-   - Your site will be available at `https://yourusername.github.io/probotcoin/`
+   - Your site will be available at `https://pristinesource.github.io/probotcoin/`
 
 ### Method 2: Manual Deployment
 
